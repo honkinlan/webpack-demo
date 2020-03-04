@@ -8,8 +8,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const webpack = require('webpack')
 
 const config = {
-
-    entry: ['@babel/polyfill', path.resolve(__dirname, './src/index.js')],
+    mode: process.env.NODE_ENV,
+    entry: ['@babel/polyfill', path.resolve(__dirname, './app/index.js')],
 
     output: {
 
@@ -20,7 +20,34 @@ const config = {
     },
 
     module: {
-        rules: [      
+        rules: [   
+            {
+                test: /\.js$/,
+                exclude: /node_module/,
+                use: [
+                    {
+                        loader: "babel-loader",
+                        options: {
+                            presets: ['@babel/preset-react','@babel/preset-env']
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.css$/,
+                use: [ 'style-loader', 'css-loader' ]
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    'style-loader', 'css-loader',{
+                    loader: "less-loader", // compiles Less to CSS
+                    options: {
+                        sourceMap: true,
+                        javascriptEnabled: true
+                    }
+                }]
+            },
             {
                 test: /\.(jpg|png|gif)$/,
                 use: [
@@ -85,7 +112,7 @@ const config = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: "index.html",
-            template: path.resolve(__dirname, './src/public/index.html')
+            template: path.resolve(__dirname, './app/index.html')
         }),
         new CleanWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),
