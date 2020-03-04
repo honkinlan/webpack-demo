@@ -1,8 +1,10 @@
 const merge = require('webpack-merge')
+const path = require('path')
 
 const webpackConfig = require('./webpack.config')
 
 const config = {
+    entry: ['@babel/polyfill', path.resolve(__dirname, './src/index-react.js')],
     module:{
         rules:[
             {

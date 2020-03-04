@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "vue": "webpack-dev-server --confg ./webpack.vue.js",
-    "react": "webpack-dev-server --confg ./webpack.react.js",
+    "vue": "webpack-dev-server --config ./webpack.vue.js",
+    "react": "webpack-dev-server --config ./webpack.react.js",
     "dev": "webpack-dev-server --config ./webpack.config.js",
     "build": "webpack --config ./webpack.config.js"
   },

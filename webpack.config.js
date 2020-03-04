@@ -8,9 +8,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const webpack = require('webpack')
 
 const config = {
-
-    entry: ['@babel/polyfill', path.resolve(__dirname, './src/index.js')],
-
     output: {
 
         filename: '[name].[hash:8].js',

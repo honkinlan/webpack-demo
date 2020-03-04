@@ -1,10 +1,12 @@
 const merge = require('webpack-merge')
+const path = require('path')
 
 const webpackConfig = require('./webpack.config')
 
 const VueLoaderPlugin  = require('vue-loader/lib/plugin')
 
 const config = {
+    entry: ['@babel/polyfill', path.resolve(__dirname, './src/index-vue.js')],
     module:{
         rules:[
             {
