@@ -1,0 +1,70 @@
+body {
+    -webkit-tap-highlight-color: rgba(26,26,26,0);
+}
+#root{
+    height: 100%;
+}
+
+@mainColor: #3da0a7;
+// antd 样式覆盖
+.ant-layout{
+    height: 100%;
+}
+.ant-layout-sider{
+    background: @mainColor;
+}
+.ant-menu-dark, .ant-menu-dark .ant-menu-sub{
+    background: @mainColor!important;
+}
+.ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected{
+    background: #fff!important;
+}
+.ant-menu-dark .ant-menu-item-selected .anticon,
+.ant-menu-dark .ant-menu-item-selected .anticon + span{
+    color: @mainColor!important;
+}
+.ant-layout-sider-collapsed{
+    .ant-menu-inline-collapsed{
+        width: 100%!important;
+        &>.ant-menu-item{
+            padding: 0!important;
+        }
+    }
+}
+// antd 样式覆盖结束
+
+// logo
+.logo{
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    margin: 20px auto 10px;
+    border-radius: 50%;
+    text-align: center;
+    img{
+        height: 32px;
+        margin-top: 12px;
+    }
+}
+.site-name{
+    text-align: center;
+    font-weight: 300;
+    a{
+        color: #fff;
+    }
+}
+// layout header
+.layout-header {
+    background: #fff;
+    .trigger {
+        font-size: 18px;
+        line-height: 64px;
+        padding: 0 24px;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    .trigger:hover {
+        color: #1890ff;
+    }
+}
