@@ -1,5 +1,4 @@
 const searchArr = [
-    
     {
         name: '百度',
         url: 'https://www.baidu.com/'
@@ -12,7 +11,6 @@ const searchArr = [
         name: '必应',
         url: 'https://cn.bing.com/'
     }
-
 ]
 
 export default searchArr
