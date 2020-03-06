@@ -1,8 +1,8 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
 const { Sider } = Layout;
+const { SubMenu } = Menu;
 import { UserOutlined } from '@ant-design/icons';
-import searchArr from '@public/config'
 
 export default function Sidebar(props) {
     // console.log(searchArr)
@@ -14,15 +14,25 @@ export default function Sidebar(props) {
             </div>
             <h1 className="site-name"><a href="">好蓝搜</a></h1>
         </div>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            {
-                searchArr.map((item, index) => {
-                    return <Menu.Item key={index}>
-                        <UserOutlined />
-                        <span>{item.name}</span>
-                    </Menu.Item>
-                })
-            }
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['0']} defaultOpenKeys={['sub1']}>
+            <SubMenu
+                key="sub1"
+                title={
+                    <span>
+                        <span>Navigation One</span>
+                    </span>
+                }
+            >
+                {
+                    props.menuArr.map((item, index) => {
+                        return <Menu.Item key={index} onClick={props.onClick}>
+                            <UserOutlined />
+                            <span>{item.name}</span>
+                        </Menu.Item>
+                    })
+                }
+            </SubMenu>
+
         </Menu>
     </Sider>
 }
