@@ -3,7 +3,7 @@ import React from 'react'
 import { Layout } from 'antd';
 // import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import '@styles/common.less'
-import Sidebar from '@components/sidebar'
+import Sidebar from '@container/sidebar'
 import Header from '@components/header'
 import Wrapper from '@components/wrapper/wrapper'
 import searchArr from '@public/config'
