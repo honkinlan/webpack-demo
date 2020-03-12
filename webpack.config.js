@@ -31,6 +31,7 @@ const config = {
         alias: { // 减少使用别名提高编译速速
           '@app': path.join(__dirname, './app'),
           '@components': path.join(__dirname, './app/components'),
+          '@container': path.join(__dirname, './app/container'),
           '@public': path.join(__dirname, './public'),
           '@images': path.join(__dirname, './public/images'),
           '@styles': path.join(__dirname, './public/styles')
