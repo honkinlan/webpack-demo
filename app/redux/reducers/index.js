@@ -2,6 +2,7 @@
 const frames = (state = [], action) => {
     switch (action.type) {
         case 'ADD_FRAME':
+            // console.log(1)
             return [
                 ...state,
                 {

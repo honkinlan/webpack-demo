@@ -1,39 +1,19 @@
-import React from 'react'
-import { Layout, Menu } from 'antd';
-const { Sider } = Layout;
-const { SubMenu } = Menu;
-import { UserOutlined } from '@ant-design/icons';
+
+import SideMenu from '@components/SideMenu'
+import menuArr from "@public/menuArr.js"
 
 import { connect } from 'react-redux'
 import { addFrame } from '../redux/actions'
-// import Menu from '../components/sidebar'
 
-const SideBar = ({ dispatch }) => {
+const mapStateToProps = state => ({
+    menus: menuArr
+})
 
-    return <Sider trigger={null} collapsible collapsed={false} collapsedWidth="70">
-        <div>
-            <div className="logo">
-                <img src="../public/images/blue.svg" alt="logo" />
-            </div>
-            <h1 className="site-name"><a href="">好蓝搜</a></h1>
-        </div>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['0']} defaultOpenKeys={['sub1']}>
-            <SubMenu
-                key="sub1"
-                title={
-                    <span>
-                        <span>Navigation One</span>
-                    </span>
-                }
-            >
-                <Menu.Item key="1" >
-                            <UserOutlined />
-                            <span>adf</span>
-                        </Menu.Item>
-            </SubMenu>
+const mapDispatchToProps = dispatch => ({
+    addFrame: url => dispatch(addFrame(url))
+})
 
-        </Menu>
-    </Sider>
-}
-
-export default connect()(SideBar)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(SideMenu)

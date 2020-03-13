@@ -12,5 +12,14 @@ const searchArr = [
         url: 'https://cn.bing.com/'
     }
 ]
-
-export default searchArr
+const search = {
+    name: '搜索工具',
+    children: searchArr
+}
+const topList = [
+    {
+        name: '测试',
+        url: 'https://www.baidu.com/'
+    }
+]
+export default [...topList, search]
