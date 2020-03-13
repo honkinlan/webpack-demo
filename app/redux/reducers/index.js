@@ -1,14 +1,23 @@
 
+// const curFrame = (state = null, action) => {
+//     switch (action.type) {
+//         case ''
+//     }
+// }
+
 const frames = (state = [], action) => {
     switch (action.type) {
         case 'ADD_FRAME':
-            // console.log(1)
+            const exist = state.some(item => item.url === action.url);
+            if(exist){
+                return [...state]
+            }
             return [
                 ...state,
                 {
                     id: action.id,
-                    text: action.text,
-                    completed: false
+                    url: action.url,
+                    active: false
                 }
             ]
         case 'SWITCH_FRAME':

@@ -5,6 +5,7 @@ const { SubMenu } = Menu;
 import { UserOutlined } from '@ant-design/icons';
 
 const SideMenu = ({ addFrame, menus }) => {
+    
     return <Sider trigger={null} collapsible collapsed={false} collapsedWidth="70">
         <div>
             <div className="logo">
