@@ -1,5 +1,5 @@
 
-import Wrapper from '@componenst/Wrapper/Wrapper'
+// import Wrapper from '@componenst/Wrapper/Wrapper'
 import { connect } from 'react-redux'
 
 const mapStateToProps = state => ({

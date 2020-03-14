@@ -6,33 +6,34 @@
 // }
 import menuArr from "@public/menuArr.js"
 const menus = (state = menuArr, action) => {
-    return state
+    return state;
 }
 
 const frames = (state = [], action) => {
+
     switch (action.type) {
         case 'ADD_FRAME':
-            console.log('add')
-            const exist = state.some(item => item.url === action.url);
-            if(exist){
+            // action payload
+            const frame = action.frame;
+            console.log('此标签已存在', frame)
+            const exist = state.some(item => item.id === frame.id);
+            if (exist) {
                 return [...state]
             }
-            console.log([
-                ...state,
-                {
-                    id: action.id,
-                    url: action.url,
-                    active: false
-                }
-            ])
+            console.log('新增标签', frame)
             return [
                 ...state,
                 {
-                    id: action.id,
-                    url: action.url,
+                    ...frame,
                     active: false
                 }
             ]
+        case 'REDUCE_FRAME':
+            let arr = [...state];
+            const index = arr.findIndex(i => (i.id == action.id));
+            arr.splice(index, 1)
+            return arr;
+
         case 'SWITCH_FRAME':
             return state.map(frame =>
                 (frame.id === action.id)
