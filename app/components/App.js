@@ -5,7 +5,7 @@ import { Layout } from 'antd';
 import '@styles/common.less'
 import SideMenu from '@components/SideMenu'
 import Header from '@components/header'
-import Wrapper from '@components/wrapper/wrapper'
+import Wrapper from '@components/wrapper'
 import TabPanel from '@components/TabPanel'
 
 
