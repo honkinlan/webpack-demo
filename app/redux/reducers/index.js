@@ -14,19 +14,25 @@ const frames = (state = [], action) => {
     switch (action.type) {
         case 'ADD_FRAME':
             // action payload
-            const frame = action.frame;
-            console.log('此标签已存在', frame)
+            let frame = action.frame;
+            frame.isActive = true
+            for(let i of state) {
+                if(i.id !== frame.id){
+                    i.isActive = false;
+                }
+            }
             const exist = state.some(item => item.id === frame.id);
             if (exist) {
                 return [...state]
             }
             console.log('新增标签', frame)
+            console.log([
+                ...state,
+                frame
+            ])
             return [
                 ...state,
-                {
-                    ...frame,
-                    active: false
-                }
+                frame
             ]
         case 'REDUCE_FRAME':
             let arr = [...state];

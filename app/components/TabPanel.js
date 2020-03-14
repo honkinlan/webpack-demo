@@ -2,29 +2,34 @@ import React from 'react'
 import { Tabs, Button } from 'antd';
 const { TabPane } = Tabs;
 
-import {reduceFrame} from '../redux/actions'
+import {reduceFrame, addFrame} from '../redux/actions'
 import { connect } from 'react-redux'
 
 @connect(
     // 需要的state参数
     state=>({frames: state.frames}),
     // 自动dispatch的action创建函数
-    {reduceFrame}
+    {reduceFrame, addFrame}
 )
 class TabPanel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeKey: '3'
+      activeKey: '0'
     };
   }
+  
+  getActiveKey() {
+    const key = this.props.frames.filter(item=>item.isActive)[0].id;
+    // console.log(key)
+    return key;
+  }
   componentDidMount () {
-    // console.log(this.props.frames)
-    // this.setState({ activeKey: this.props.frames[0].id.toString() });
+    console.log(this.getActiveKey())
   }
 
   onChange = activeKey => {
-    this.setState({ activeKey });
+    this.props.addFrame(this.props.frames.filter(i=> i.id===activeKey)[0])
   };
 
   onEdit = (targetKey, action) => {
@@ -37,21 +42,20 @@ class TabPanel extends React.Component {
 
   render() {
     return (
-      <div>
         <Tabs
           hideAdd
+          animated
           onChange={this.onChange}
-          activeKey={this.state.activeKey}
+          activeKey={this.getActiveKey()}
           type="editable-card"
           onEdit={this.onEdit}
         >
           {this.props.frames.map(pane => (
             <TabPane tab={pane.name} key={pane.id}>
-              {/* {pane.content} */}
+              <iframe src={pane.url}></iframe>
             </TabPane>
           ))}
         </Tabs>
-      </div>
     );
   }
 }

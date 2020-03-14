@@ -1,3 +1,6 @@
+// 谷歌需要在设置里面设置始终允许当前域名显示弹出窗口和重定向，
+// 不然有些页面会直接重定向‘反噬’当前页面。。
+
 const searchArr = [
     {
         name: '百度',
@@ -10,6 +13,10 @@ const searchArr = [
     {
         name: '必应',
         url: 'https://cn.bing.com/'
+    },
+    {
+        name: '豆瓣电影',
+        url: 'https://www.zhihu.com/explore'
     }
 ]
 const search = {

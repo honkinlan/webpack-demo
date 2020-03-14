@@ -5,31 +5,31 @@ import { Layout } from 'antd';
 import '@styles/common.less'
 import SideMenu from '@components/SideMenu'
 import Header from '@components/header'
-import Wrapper from '@components/wrapper'
-import TabPanel from '@components/TabPanel'
+import Wrapper from '@components/Wrap/Wrap'
 
 
-const App = () => {
-    let state = {
-        collapsed: false,
-        tags: [], // 所有已点击导航
-        currentTag: null // 当前选中的导航
+export default class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            collapsed: false
+        }
     }
-    const toggle = (collapsed) => {
-        this.setState({
-            collapsed
-        });
+    toggle() {
+        console.log(11)
+        // console.log(collapsed)
+        this.setState({collapsed: !this.state.collapsed})
     }
 
-    return (
-        <Layout>
-            <SideMenu />
-            <Layout className="site-layout">
-                <Header collapsed={state.collapsed} onClick={toggle} />
-                <TabPanel />
-                <Wrapper current={state.currentTag} />
+    render() {
+        return (
+            <Layout>
+                <SideMenu collapsed={this.state.collapsed} />
+                <Layout className="site-layout">
+                    <Header collapsed={this.state.collapsed} onClick={() => this.toggle()} />
+                    <Wrapper />
+                </Layout>
             </Layout>
-        </Layout>
-    )
+        )
+    }
 }
-export default App
