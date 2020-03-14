@@ -4,14 +4,27 @@
 //         case ''
 //     }
 // }
+import menuArr from "@public/menuArr.js"
+const menus = (state = menuArr, action) => {
+    return state
+}
 
 const frames = (state = [], action) => {
     switch (action.type) {
         case 'ADD_FRAME':
+            console.log('add')
             const exist = state.some(item => item.url === action.url);
             if(exist){
                 return [...state]
             }
+            console.log([
+                ...state,
+                {
+                    id: action.id,
+                    url: action.url,
+                    active: false
+                }
+            ])
             return [
                 ...state,
                 {
@@ -33,6 +46,7 @@ const frames = (state = [], action) => {
 
 export default function appStore(state = {}, action) {
     return {
-        frames: frames(state.frames, action)
+        frames: frames(state.frames, action),
+        menus: menus(state.menus, action)
     }
 }
