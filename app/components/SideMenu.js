@@ -43,6 +43,11 @@ export default class SideMenu extends React.Component {
         this.setState({ defaultSelect: activeMenu.id });
     }
 
+    onOpenChange = openKeys => {
+        // console.log(openKeys)
+        this.setState({ defaultOpen: openKeys[1] })
+    }
+
     componentWillMount() {
         this.addDefaultSelect();
         console.log(this.props.collapsed)
@@ -56,7 +61,7 @@ export default class SideMenu extends React.Component {
                 <h1 className="site-name"><a href="">蓝搜</a></h1>
             </div>
             {/* defaultSelectedKeys&defaultOpenKeys 在更改值后不会重新渲染dom， selectedKeys&openKeys会重新渲染，但是需要自己绑定点击时间来修改值 */}
-            <Menu theme="dark" mode="inline" defaultSelectedKeys={[this.state.defaultSelect]} defaultOpenKeys={[this.state.defaultOpen]}>
+            <Menu theme="dark" mode="inline" defaultSelectedKeys={[this.state.defaultSelect]} openKeys={[this.state.defaultOpen]} onOpenChange={this.onOpenChange}>
                 {
                     this.props.menus.map(item => {
 

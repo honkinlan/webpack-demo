@@ -4,25 +4,37 @@ body {
 #root{
     height: 100%;
 }
+// @mainColor: #3da0a7;
+@mainColor: transparent;
+.main-bg{
+    background-color: #0886ce;
+    background-image: linear-gradient(0deg, #0886ce 0%, #3da0a7 100%);
 
-@mainColor: #3da0a7;
+}
 // antd 样式覆盖
 .ant-layout{
     height: 100%;
 }
 .ant-layout-sider{
-    background: @mainColor;
+    // background: @mainColor;
+    .main-bg();
 }
 .ant-menu-item:active,
 .ant-menu-submenu-title:active{
-    background-image: linear-gradient(135deg, #3da0a7 0%, #08787f 100%)!important;
+    // background-image: linear-gradient(135deg, #3da0a7 0%, #08787f 100%)!important;
 }
-.ant-menu-dark, .ant-menu-dark .ant-menu-sub{
+.ant-menu-dark.ant-menu-inline .ant-menu-item{
+    // margin: 0;
+}
+.ant-menu-dark{
+    background: @mainColor!important;
+}
+.ant-menu-dark .ant-menu-sub{
     background: @mainColor!important;
 }
 .ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected{
-    background-color: transparent!important;
-    background-image: linear-gradient(135deg, #3da0a7 0%, #08787f 100%)!important;
+    background-color: @mainColor!important;
+    // background-image: linear-gradient(135deg, #3da0a7 0%, #08787f 100%)!important;
 }
 .ant-menu-dark .ant-menu-item-selected .anticon,
 .ant-menu-dark .ant-menu-item-selected .anticon + span{
@@ -31,8 +43,9 @@ body {
 .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,.ant-menu-submenu-active{
     color: #fff!important;
 }
+.ant-tabs-nav .ant-tabs-tab:hover,
 .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab-active{
-    color: #147d85;
+    color: #3da0a7!important;
 }
 .ant-layout-sider-collapsed{
     .ant-menu-inline-collapsed{
@@ -83,6 +96,8 @@ body {
 // layout header
 .layout-header {
     background: #fff;
+    display: flex;
+    align-items: baseline;
     .trigger {
         font-size: 18px;
         line-height: 64px;
@@ -90,8 +105,32 @@ body {
         cursor: pointer;
         transition: color 0.3s;
     }
-
+    .anticon svg{
+        vertical-align: middle;
+    }
     .trigger:hover {
         color: #1890ff;
+    }
+    .poison{
+        height: 100%;
+        flex: 1;
+        p{
+            margin: 0;
+            display: inline-block;
+            padding: 0 30px;
+            &::selection{
+                background-color: transparent;
+            }
+            a{
+                font-family: "fzzj-mmxjjw";
+                color: #ef069b;
+                font-size: 18px;
+                font-weight: 200;
+                &::selection{
+                    background-color: transparent;
+                    color: #ef069b;
+                }
+            }
+        }
     }
 }

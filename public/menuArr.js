@@ -49,10 +49,6 @@ const frontendArr = [
 ]
 const otherArr = [
     {
-        name: '百度翻译',
-        url: 'https://fanyi.baidu.com/'
-    },
-    {
         name: '有道笔记',
         url: 'http://note.youdao.com/'
     },
@@ -71,6 +67,10 @@ const otherArr = [
     {
         name: 'pixabay',
         url: 'https://pixabay.com/'
+    },
+    {
+        name: '虎嗅',
+        url: 'https://www.huxiu.com/'
     }
 ]
 const search = {
