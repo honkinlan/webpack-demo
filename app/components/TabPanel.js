@@ -20,6 +20,9 @@ class TabPanel extends React.Component {
   }
   
   getActiveKey() {
+    if(this.props.frames.length === 0){
+      return ''
+    }
     const key = this.props.frames.filter(item=>item.isActive)[0].id;
     // console.log(key)
     return key;
@@ -52,7 +55,7 @@ class TabPanel extends React.Component {
         >
           {this.props.frames.map(pane => (
             <TabPane tab={pane.name} key={pane.id}>
-              <iframe src={pane.url}></iframe>
+              <iframe src={pane.url} ></iframe>
             </TabPane>
           ))}
         </Tabs>

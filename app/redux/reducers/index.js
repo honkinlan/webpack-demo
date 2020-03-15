@@ -25,20 +25,22 @@ const frames = (state = [], action) => {
             if (exist) {
                 return [...state]
             }
-            console.log('新增标签', frame)
-            console.log([
-                ...state,
-                frame
-            ])
+            // console.log('新增标签', frame)
+            // console.log([
+            //     ...state,
+            //     frame
+            // ])
             return [
                 ...state,
                 frame
             ]
         case 'REDUCE_FRAME':
-            let arr = [...state];
-            const index = arr.findIndex(i => (i.id == action.id));
-            arr.splice(index, 1)
-            return arr;
+            const index = state.findIndex(i => (i.id == action.id));
+            if(state[index].isActive && index > 0){
+                state[index-1].isActive = true;
+            }
+            state.splice(index, 1)
+            return [...state];
 
         case 'SWITCH_FRAME':
             return state.map(frame =>
