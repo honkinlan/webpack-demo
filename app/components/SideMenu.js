@@ -56,6 +56,7 @@ export default class SideMenu extends React.Component {
         return <Sider trigger={null} collapsible collapsed={this.props.collapsed} collapsedWidth="70">
             <div>
                 <div className="logo">
+                    {/* <img src={require('@public/images/blog-avatar.jpg')} alt="logo" /> */}
                     <img src="https://img.lanhongjin.com/blue/blue.svg" alt="logo" />
                 </div>
                 <h1 className="site-name"><a href="">蓝搜</a></h1>

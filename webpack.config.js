@@ -18,8 +18,8 @@ const config = {
     output: {
 
         filename: '[name].[hash:8].js',
-
-        path: resolve('./dist')
+        path: resolve('./dist'),
+        publicPath: './public/'
 
     },
     resolve: {// 减少后缀
@@ -47,7 +47,7 @@ const config = {
                     {
                         loader: "babel-loader",
                         options: {
-                            presets: ['@babel/preset-react','@babel/preset-env']
+                            presets: ['@babel/preset-react','@babel/preset-env'],
                         }
                     }
                 ]
@@ -77,7 +77,8 @@ const config = {
                             fallback: {
                                 loader: 'file-loader',
                                 options: {
-                                    name: 'img/[name].[hash:8].[ext]'
+                                    outputPath: 'images/',
+                                    name: '[name].[hash:8].[ext]'
                                 }
                             }
                         }
